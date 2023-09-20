@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/videogame", newVidgameRouter);
+app.use("/videogame", newVidgameRouter);
 
 mongoose
   .connect(process.env.mongo_DBURL, {

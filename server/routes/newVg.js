@@ -24,4 +24,18 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const videogames = await vG.find({});
+
+    return res.status(200).json({
+      count: videogames.length,
+      data: videogames,
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
+
 export default router;
