@@ -38,4 +38,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+//wanted to test to see if i can do through dif route.
+
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const videogame = await vG.findById(id);
+
+//     return res.status(200).json(videogame);
+//   } catch (error) {
+//     console.log(error.message);
+//     res.status(500).send({ message: error.message });
+//   }
+// });
+
 export default router;
