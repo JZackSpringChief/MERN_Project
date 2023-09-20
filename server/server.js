@@ -13,13 +13,16 @@ app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => {
   //   console.log(req);
-  return res.status(234).send("MERN stack test");
+  return res.status(234).send("MERN stack test v1.2");
 });
 
 app.use("/videogame", newVidgameRouter);
 
 mongoose
-  .connect(process.env.mongo_DBURL)
+  .connect(process.env.mongo_DBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("APP is connected to database");
     app.listen(PORT, () => {
