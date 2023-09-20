@@ -3,14 +3,20 @@ import { PORT } from "./config.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+//routes
+import newVidgameRouter from "./routes/newVg.js";
+
 const app = express();
 dotenv.config();
 app.use(express.json({ extended: false }));
+//
 
 app.get("/", (req, res) => {
   //   console.log(req);
   return res.status(234).send("MERN stack test");
 });
+
+app.use("/videogame", newVidgameRouter);
 
 mongoose
   .connect(process.env.mongo_DBURL)
