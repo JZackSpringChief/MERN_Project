@@ -2,6 +2,7 @@ import express from "express";
 import { PORT } from "./config.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 //routes
 import newVidgameRouter from "./routes/newVg.js";
@@ -11,7 +12,18 @@ import deleteVidGRouter from "./routes/deleteVg.js";
 const app = express();
 dotenv.config();
 app.use(express.json({ extended: false }));
-//
+
+//middle ware?
+
+app.use(cors());
+
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-type"],
+//   })
+// );
 
 app.get("/", (req, res) => {
   //   console.log(req);
