@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 //routes
 import newVidgameRouter from "./routes/newVg.js";
 import singleVidGRouter from "./routes/singleVg.js";
+import deleteVidGRouter from "./routes/deleteVg.js";
 
 const app = express();
 dotenv.config();
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.use("/videogame", newVidgameRouter);
 app.use("/videogame", singleVidGRouter);
+app.use("/videogame", deleteVidGRouter);
 
 mongoose
   .connect(process.env.mongo_DBURL, {
