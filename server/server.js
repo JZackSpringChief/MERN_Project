@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
   return res.status(234).send("MERN stack test v1.2");
 });
 
-app.use("/videogame", newVidgameRouter);
-app.use("/videogame", singleVidGRouter);
-app.use("/videogame", deleteVidGRouter);
+app.use("/videogame", newVidgameRouter, singleVidGRouter, deleteVidGRouter);
+// app.use("/videogame", singleVidGRouter);
+// app.use("/videogame", deleteVidGRouter);
 
 mongoose
   .connect(process.env.mongo_DBURL, {
